@@ -1,0 +1,13 @@
+[Unit]
+Description=Cohen extension for Discover UPnP/DLNA and DMR Media Server Services
+After=vino-server.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cohen -o use_dbus:yes -o controlpoint:yes
+ExecStop=/usr/bin/killall cohen
+RemainAfterExit=yes
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
